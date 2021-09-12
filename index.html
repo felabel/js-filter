@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">My Contacts</h1>
+        <input type="text" id="filterInput" placeholder="Search">
+        <ul class="collection with-header" id="names">
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Abel</a>
+            </li>
+            <div class="details">
+                <p>phone: 0906 384 098</p>
+            </div>
+            <li class="collection-item">
+                <a href="#">Adam</a>
+            </li>
+            <div class="details">
+                <p>phone: 0906 384 654</p>
+            </div>
+            <li class="collection-item">
+                <a href="#">Alan</a>
+            </li><li class="collection-item">
+                <a href="#">ARIND</a>
+            </li><li class="collection-item">
+                <a href="#">Avin</a>
+            </li><li class="collection-item">
+                <a href="#">ARvinad</a>
+            </li><li class="collection-item">
+                <a href="#">azeez</a>
+            </li>
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Barrd</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Belle</a>
+            </li><li class="collection-item">
+                <a href="#">Beauty</a>
+            </li><li class="collection-item">
+                <a href="#">Best</a>
+            </li><li class="collection-item">
+                <a href="#">Beau</a>
+            </li><li class="collection-item">
+                <a href="#">Bella</a>
+            </li><li class="collection-item">
+                <a href="#">berth</a>
+            </li>
+            <li class="collection-header">
+                <h5>C</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Cane</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Carry</a>
+            </li><li class="collection-item">
+                <a href="#">Cole</a>
+            </li><li class="collection-item">
+                <a href="#">Corine</a>
+            </li><li class="collection-item">
+                <a href="#">CARL</a>
+            </li><li class="collection-item">
+                <a href="#">Carmen</a>
+            </li><li class="collection-item">
+                <a href="#">Cutt</a>
+            </li>
+            <li class="collection-header">
+                <h5>D</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dannny</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Daniel</a>
+            </li><li class="collection-item">
+                <a href="#">Daisy</a>
+            </li><li class="collection-item">
+                <a href="#">Dickt</a>
+            </li><li class="collection-item">
+                <a href="#">Devin</a>
+            </li><li class="collection-item">
+                <a href="#">Della</a>
+            </li><li class="collection-item">
+                <a href="#">Divine</a>
+            </li>
+
+        </ul>
+    </div>
+
+    <script>
+        // get input element
+        let filterInput = document.getElementById('filterInput');
+        filterInput.addEventListener('keyup', filterNames);
+
+        function filterNames() {
+            // get value of input      
+            let filterValue = document.getElementById('filterInput').value.toUpperCase()
+            // get names
+            let ul = document.getElementById('names');
+            // get collection items (li)
+            let li = ul.querySelectorAll('li.collection-item');
+            // loop through collection items
+            for (let i = 0; i < li.length; i++) {
+                let a = li[i].getElementsByTagName('a')[0];
+                // if matched
+                if(a.innerHTML.toLocaleUpperCase().indexOf(filterValue)> -1 ){
+                    li[i].style.display = '';
+                } else {
+                    li[i].style.display = 'none';
+
+                }
+                
+            }
+        }
+        // get the li
+        let li = document.getElementsByTagName('li');
+        for (let i = 0; i < li.length; i++) {
+            const element = li[i];
+            element.addEventListener('click', showDetails)
+        }
+        // hide details
+        let details = document.querySelectorAll('.details')
+        for (let i = 0; i < details.length; i++) {
+            const element = details[i];
+            element.style.display = 'none'
+
+            
+        }
+        function showDetails() {
+            console.log('show');
+            let details = document.querySelectorAll('.details')
+        for (let i = 0; i < details.length; i++) {
+            const element = details[0];
+            element.style.display = 'block'
+
+            
+        }
+        // trying to get each detail for each contact
+        //     let lis = document.getElementsByTagName('li');
+        // for (let i = 0; i < lis.length; i++) {
+        //     const element = lis[i].querySelectorAll('li > .details');
+        //     console.log(element);
+            // for (let j = 0; j < element.length; j++) {
+            //     const elements = element[j];
+            //     elements.style.display = 'block'
+                
+            // }
+            // element.style.display = 'block'
+
+        // }
+            // let details = document.querySelectorAll('details')
+
+            // for (let i = 0; i < details.length; i++) {
+            // const element = details[i];
+            
+        // }
+            
+        }
+        
+    </script>
+</body>
+</html>
